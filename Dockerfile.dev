@@ -1,0 +1,14 @@
+# Specify base image
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+
+RUN npm install
+
+# Though not required to copy all the code from local to the container since we are using the docker compose to map volumes,
+# but still written here to ensure if we don't use docker compose to do the build, our build shouldn't fail.
+COPY . .   
+
+CMD ["npm", "run", "start"]
