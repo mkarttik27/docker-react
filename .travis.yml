@@ -1,0 +1,17 @@
+# Tels travis that we need super user permissions to run this build. Eberytime we use docker, we need super user permissions
+sudo: required
+
+services:
+  #Tells the travis-ci that we need docker pre built/installed
+  - docker
+
+#This section tells travis-ci that these steps need to be performed before we deploy our code (on prod) or run our tests
+before_install:
+  #build our docker image
+  - docker build -t mkarttik/docker-react -f dockerfile.dev .
+
+# To tell Travis-CI about how to run oyr test suite
+script:
+  # Here -- -- covergae is being added, so that the tests run and exits. Otherwise, as a normal behavior npm run test runs the tests and presents
+  # options to run again or do a lot of other things. Here, we want travis to run the tests and be done with instead of waiting forever.
+  - docker run -e CI=true mkarttik/docker-react npm run test -- --coverage
