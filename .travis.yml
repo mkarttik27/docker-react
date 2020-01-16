@@ -1,3 +1,4 @@
+# Was needed for a build fix in Travis CI
 language: generic
 # Tell travis that we need super user permissions to run this build. Eberytime we use docker, we need super user permissions
 sudo: required
@@ -16,3 +17,16 @@ script:
   # Here -- -- covergae is being added, so that the tests run and exits. Otherwise, as a normal behavior npm run test runs the tests and presents
   # options to run again or do a lot of other things. Here, we want travis to run the tests and be done with instead of waiting forever.
   - docker run -e CI=true mkarttik/docker-react npm run test -- --coverage
+
+# Deploy in AWS
+deploy:
+  provide: elasticbeanstalk
+  region: "us-east-2"
+  name: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-143853483994"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
