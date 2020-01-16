@@ -1,4 +1,5 @@
-# Tels travis that we need super user permissions to run this build. Eberytime we use docker, we need super user permissions
+language:generic
+# Tell travis that we need super user permissions to run this build. Eberytime we use docker, we need super user permissions
 sudo: required
 
 services:
