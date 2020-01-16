@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 language: generic
 
 # Tels travis that we need super user permissions to run this build. Eberytime we use docker, we need super user permissions
+=======
+language:generic
+# Tell travis that we need super user permissions to run this build. Eberytime we use docker, we need super user permissions
+>>>>>>> 5ae52d3673f1decaa625af866744cc569c4175cc
 sudo: required
 
 services:
