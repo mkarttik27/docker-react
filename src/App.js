@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hey there, pipi! How are you doing? This change was done on a feature branch. Yoohooooo!
+          Hey there, pipi! How are you doing? This change was done on a feature branch. Yoohooooo yow yow!
         </p>
         <a
           className="App-link"
@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React Today
         </a>
       </header>
     </div>
